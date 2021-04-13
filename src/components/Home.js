@@ -4,8 +4,8 @@ const Home = ({ handleLogout }) =>{
     return(
         <section className = "home"> 
             <nav>
-                <h1>Welcome</h1>
                 <button onClick = {handleLogout}>Logout</button>
+                <h1 className = "welcome">Welcome to FitU!</h1>
             </nav>
         </section>
     )
