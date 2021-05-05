@@ -5,6 +5,10 @@
   font-family: "Nunito", sans-serif;
 }
 
+.App-header {
+  background-color: dodgerblue;
+}
+
 button {
   border: none;
   outline: none;
@@ -126,4 +130,44 @@ button {
   font-size: 48px;
   vertical-align: middle;
   line-height: 90px; 
+}
+
+.intro-text {
+  text-align: center;
+}
+
+.recommendation {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.btn-style {
+  border-radius: 10px;
+  background-color: dodgerblue;
+  width: 100px;
+}
+
+.forgot-btn {
+  border-radius: 10px;
+  width: 100px;
+  background-color: white;
+  color: blue;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: yellow;
+  text-decoration: underline;
+}
+
+.navigation {
+  display: inline-block;
+}
+
+.signout-btn {
+  background-color: dodgerblue;
 }
