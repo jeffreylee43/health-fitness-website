@@ -1,6 +1,14 @@
-import React from "react";
+import React , {useContext}from "react";
+import { Redirect } from 'react-router-dom';
+import { AuthContext } from '../firebase/Auth';
 
 const Landing = () => {
+  const {currentUser} = useContext(AuthContext);
+  
+  if(currentUser) {
+    return <Redirect to="/home"/>
+  }
+
   return (
     
         <div className="intro-text">
