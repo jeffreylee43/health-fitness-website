@@ -2,19 +2,30 @@ import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { doCreateUserWithEmailAndPassword } from '../firebase/FirebaseFunctions';
 import { AuthContext } from '../firebase/Auth';
+import axios from 'axios';
 
 function SignUp() {
     const {currentUser} = useContext(AuthContext);
     const [pwMatch, setPwMatch] = useState('');
     const handleSignUp = async (e) => {
         e.preventDefault();
-        const { displayName, email, passwordOne, passwordTwo } = e.target.elements;
+        const { displayName, email, passwordOne, passwordTwo, age, gender, height, skill } = e.target.elements;
         if (passwordOne.value !== passwordTwo.value) {
             setPwMatch('Passwords do not match');
             return false;
         }
         try {
             await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
+            const postReturn = await axios.post('/users', {
+                name: displayName.value,
+                email: email.value,
+                // password: passwordTwo.value,
+                age: age.value,
+                gender: gender.value,
+                height: height.value,
+                skill: skill.value
+            });
+            return;
         } catch (error) {
             alert(error);
         }
@@ -37,7 +48,7 @@ function SignUp() {
             <div>
                 <label>
                     Email:
-                    <input required name="email" type="email" placeholder="Email" required/>
+                    <input name="email" type="email" placeholder="Email" required/>
                 </label>
             </div>
             <div>
@@ -59,7 +70,7 @@ function SignUp() {
                 </label>
             </div>
             <div>
-                <label for="gender">
+                <label htmlFor="gender">
                     Choose a Gender:
                     <select name="gender" id="gender">
                         <option value="male">Male</option>
@@ -76,11 +87,11 @@ function SignUp() {
                 </label>
             </div>
             <div>
-                <label for="skill">
+                <label htmlFor="skill">
                     Choose a skill level:
                     <select name="skill" id="skill">
                         <option value="beginner">Beginner</option>
-                        <option value="inter">Intermediate</option>
+                        <option value="intermediate">Intermediate</option>
                         <option value="advanced">Advanced</option>
                     </select>
                 </label>

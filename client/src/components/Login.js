@@ -31,6 +31,7 @@ function Login() {
     }
 
     if(currentUser) {
+        console.log(currentUser.email);
         return <Redirect to="/home"/>
     }
 
@@ -62,7 +63,7 @@ function Login() {
                 
             </form>
             <br/>
-            <SocialSignIn />
+            {/* <SocialSignIn /> */}
         </div>
     )
 }

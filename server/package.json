@@ -1,0 +1,20 @@
+{
+  "name": "project-server",
+  "version": "1.0.0",
+  "description": "project-server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Jeffrey Lee, Adam Farid, Siddhanth Patel, Cheng Cheng",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6",
+    "node-redis": "^0.1.7",
+    "redis": "^3.1.2"
+  }
+}
