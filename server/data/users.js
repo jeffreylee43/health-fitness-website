@@ -20,7 +20,8 @@ module.exports = {
             age: age,
             gender: gender,
             height: height,
-            skill: skill
+            skill: skill,
+            journal: []
         }
 
         const insertUser = await userCollection.insertOne(newUser);
@@ -45,5 +46,5 @@ module.exports = {
         foundUser._id = stringId;
 
         return foundUser;
-    }, 
+    }
 };

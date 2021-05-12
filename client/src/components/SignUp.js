@@ -25,7 +25,6 @@ function SignUp() {
                 height: height.value,
                 skill: skill.value
             });
-            return;
         } catch (error) {
             alert(error);
         }

@@ -144,7 +144,9 @@ button {
 .btn-style {
   border-radius: 10px;
   background-color: dodgerblue;
-  width: 100px;
+  width: auto;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .forgot-btn {
@@ -170,4 +172,24 @@ button {
 
 .signout-btn {
   background-color: dodgerblue;
+}
+
+.btn-group {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.journal-btn-style {
+  border-radius: 10px;
+  background-color: dodgerblue;
+  width: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-div {
+  float: left;
+  width: 33%;
 }

@@ -37,7 +37,7 @@ router.post('/', async (req,res) => {
 
     try {
         const newUser = await users.addNewUser(name, email, parsedAge, gender, parsedHeight, skill);
-        return;
+        return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: "Could not add new user"});
     }
