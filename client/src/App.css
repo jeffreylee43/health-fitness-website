@@ -193,3 +193,7 @@ button {
   float: left;
   width: 33%;
 }
+
+.note-style {
+  padding: 10px 0;
+}
