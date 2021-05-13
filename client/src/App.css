@@ -265,3 +265,11 @@ button {
   padding: 10px;
   border-radius: 10px;
 }
+
+.profile-div {
+  text-align: center;
+}
+
+.profile-list {
+  margin-top: 10px;
+}

@@ -42,6 +42,11 @@ const NavigationAuth = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink exact to="/profile" className="nav-link" activeClassName="active">
+            Profile
+          </NavLink>
+        </li>
+        <li>
           <SignOutButton />
         </li>
       </ul>
