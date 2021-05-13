@@ -6,7 +6,7 @@
 }
 
 .App-header {
-  background-color: dodgerblue;
+  background-color: #0077d8;
 }
 
 button {
@@ -134,17 +134,23 @@ button {
 
 .intro-text {
   text-align: center;
+  padding-top: 15px;
 }
 
 .recommendation {
+  padding: 15px;
   text-align: center;
-  padding-top: 100px;
+  margin: 50px 30px;
+  border: 2px solid #0077d8;
+  border-radius: 10px;
 }
 
 .btn-style {
   border-radius: 10px;
-  background-color: dodgerblue;
-  width: 100px;
+  background-color: #0077d8;
+  width: auto;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .forgot-btn {
@@ -157,10 +163,29 @@ button {
 .nav-link {
   color: white;
   text-decoration: none;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.nav-list li {
+  padding: 10px;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding-right: 30px;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
 }
 
 .active {
-  color: yellow;
+  color: white;
   text-decoration: underline;
 }
 
@@ -169,5 +194,82 @@ button {
 }
 
 .signout-btn {
-  background-color: dodgerblue;
+  background-color: #0077d8;
+  font-size: 20px;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.btn-group {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.journal-btn-style {
+  border-radius: 10px;
+  background-color: #0077d8;
+  width: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-div {
+  float: left;
+  width: 33%;
+}
+
+.note-style {
+  padding: 10px;
+  border: 2px solid #0077d8;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.col-note {
+  flex: 50%;
+}
+
+.modal-title {
+  padding-bottom: 15px;
+}
+
+.input-style {
+  padding: 5px 0;
+}
+
+.modal-cancel {
+  margin-top: 30px;
+  background-color: #7f7900;
+  border-radius: 10px;
+}
+
+.journal-div-style {
+  padding: 40px;
+}
+
+.desc-style {
+  text-decoration: underline;
+  color: #0077d8;
+  font-weight: bold;
+}
+
+.note-subject {
+  padding-bottom: 5px;
+}
+
+.journal-delete {
+  background-color: #ee0000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.profile-div {
+  text-align: center;
+}
+
+.profile-list {
+  margin-top: 10px;
 }

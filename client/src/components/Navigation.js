@@ -3,6 +3,8 @@ import "../App.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../firebase/Auth";
 import SignOutButton from "./SignOut";
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 const Navigation = () => {
   const { currentUser } = useContext(AuthContext);
@@ -11,8 +13,19 @@ const Navigation = () => {
 
 const NavigationAuth = () => {
   return (
+    // <Navbar bg="dark" variant="dark">
+    //   <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    //   <Nav>
+    //     <Nav.Link href="/home">Home</Nav.Link>
+    //     <Nav.Link href="/journal">Journal</Nav.Link>
+    //     <Nav.Link href="/social">Social</Nav.Link>
+    //   </Nav>
+    // </Navbar>
     <nav className="navigation">
-      <ul>
+      <ul className="nav-list">
+        <li>
+          <p className="nav-logo">FitU</p>
+        </li>
         <li>
           <NavLink exact to="/home" className="nav-link" activeClassName="active">
             Home
@@ -20,12 +33,17 @@ const NavigationAuth = () => {
         </li>
         <li>
           <NavLink exact to="/journal" className="nav-link" activeClassName="active">
-            Personal Journal
+            Journal
           </NavLink>
         </li>
         <li>
           <NavLink exact to="/social" className="nav-link" activeClassName="active">
             Social
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/profile" className="nav-link" activeClassName="active">
+            Profile
           </NavLink>
         </li>
         <li>
@@ -39,7 +57,10 @@ const NavigationAuth = () => {
 const NavigationNonAuth = () => {
   return (
     <nav className="navigation">
-      <ul>
+      <ul className="nav-list">
+        <li>
+          <p className="nav-logo">FitU</p>
+        </li>
         <li>
           <NavLink exact to="/" className="nav-link" activeClassName="active">
             Home

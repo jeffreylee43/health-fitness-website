@@ -37,9 +37,25 @@ router.post('/', async (req,res) => {
 
     try {
         const newUser = await users.addNewUser(name, email, parsedAge, gender, parsedHeight, skill);
-        return;
+        return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: "Could not add new user"});
+    }
+    
+});
+
+router.get('/:email', async (req,res) => {
+    let email = req.params.email;
+
+    if(!email || email==="" || email.trim() === "") {
+        return res.status(400).json({error: "You must provide an email."});
+    }
+
+    try {
+        const getUser = await users.getUserByEmail(email);
+        return res.status(200).json(getUser);
+    } catch(e) {
+        return res.status(400).json({error: "Could not get user"});
     }
     
 });

@@ -9,6 +9,7 @@ import Navigation from "./Navigation";
 import PrivateRoute from "./PrivateRoute";
 import Journal from "./Journal";
 import Social from "./Social";
+import Profile from "./Profile";
 import { AuthProvider } from "../firebase/Auth";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <PrivateRoute path="/home" component={Home} />
         <PrivateRoute path="/journal" component={Journal} />
         <PrivateRoute path="/social" component={Social} />
+        <PrivateRoute path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
       </Router>

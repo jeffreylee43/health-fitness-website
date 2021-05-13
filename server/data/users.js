@@ -20,7 +20,8 @@ module.exports = {
             age: age,
             gender: gender,
             height: height,
-            skill: skill
+            skill: skill,
+            journal: []
         }
 
         const insertUser = await userCollection.insertOne(newUser);
@@ -45,5 +46,25 @@ module.exports = {
         foundUser._id = stringId;
 
         return foundUser;
-    }, 
+    },
+
+    async getUserByEmail(email) {
+        if(!email || typeof email !== 'string' || email === "" || email.trim() === "") throw 'The email must be provided';
+
+        const userCollection = await users();
+
+        const foundUser = await userCollection.findOne({email: email});
+        if(foundUser === null) throw 'There are no users with the email provided.';
+
+        let sendUser = {
+            name: foundUser.name,
+            email: foundUser.email,
+            age: foundUser.age,
+            gender: foundUser.gender,
+            height: foundUser.height,
+            skill: foundUser.skill
+        }
+
+        return sendUser;
+    }
 };

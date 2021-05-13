@@ -31,7 +31,6 @@ function Login() {
     }
 
     if(currentUser) {
-        console.log(currentUser.email);
         return <Redirect to="/home"/>
     }
 
