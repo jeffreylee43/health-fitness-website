@@ -15,7 +15,7 @@ function AddNoteModal(props) {
         e.preventDefault();
         const { exerciseName, comments, sets, reps, date } = e.target.elements;
         try {
-            const addedWorkoutNote = await axios.post('/journal/addWorkoutNote', {
+            await axios.post('/journal/addWorkoutNote', {
                 subject: "Workout",
                 email: currentUser.email,
                 exerciseName: exerciseName.value,
@@ -35,7 +35,7 @@ function AddNoteModal(props) {
         e.preventDefault();
         const { foodName, calories, foodType, date, comments } = e.target.elements;
         try {
-            const addedDietNote = await axios.post('/journal/addDietNote', {
+            await axios.post('/journal/addDietNote', {
                 subject: "Diet",
                 email: currentUser.email,
                 foodName: foodName.value,
@@ -55,7 +55,7 @@ function AddNoteModal(props) {
         e.preventDefault();
         const { titleSubject, comments } = e.target.elements;
         try {
-            const addedOtherNote = await axios.post('/journal/addOtherNote', {
+            await axios.post('/journal/addOtherNote', {
                 subject: "Other",
                 email: currentUser.email,
                 titleSubject: titleSubject.value,

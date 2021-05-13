@@ -163,6 +163,25 @@ button {
 .nav-link {
   color: white;
   text-decoration: none;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.nav-list li {
+  padding: 10px;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding-right: 30px;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
 }
 
 .active {
@@ -176,6 +195,9 @@ button {
 
 .signout-btn {
   background-color: #0077d8;
+  font-size: 20px;
+  padding: 0;
+  margin-left: 10px;
 }
 
 .btn-group {
@@ -231,6 +253,7 @@ button {
 .desc-style {
   text-decoration: underline;
   color: #0077d8;
+  font-weight: bold;
 }
 
 .note-subject {

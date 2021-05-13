@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useImperativeHandle} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { Card, CardContent, CardMedia, Grid, Typography, makeStyles } from '@material-ui/core';
 import noImagePic  from '../img/no_image.jpeg';
 import highKneesPic  from "../img/high-knees.jpg";
