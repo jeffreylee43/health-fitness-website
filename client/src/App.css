@@ -6,7 +6,7 @@
 }
 
 .App-header {
-  background-color: dodgerblue;
+  background-color: #0077d8;
 }
 
 button {
@@ -134,17 +134,20 @@ button {
 
 .intro-text {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .recommendation {
+  padding: 15px;
   text-align: center;
-  padding-top: 100px;
+  margin: 50px 30px;
+  border: 2px solid #0077d8;
+  border-radius: 10px;
 }
 
 .btn-style {
   border-radius: 10px;
-  background-color: dodgerblue;
+  background-color: #0077d8;
   width: auto;
   padding: 10px;
   font-size: 14px;
@@ -163,7 +166,7 @@ button {
 }
 
 .active {
-  color: yellow;
+  color: white;
   text-decoration: underline;
 }
 
@@ -172,7 +175,7 @@ button {
 }
 
 .signout-btn {
-  background-color: dodgerblue;
+  background-color: #0077d8;
 }
 
 .btn-group {
@@ -184,7 +187,7 @@ button {
 
 .journal-btn-style {
   border-radius: 10px;
-  background-color: dodgerblue;
+  background-color: #0077d8;
   width: auto;
   padding: 10px;
   font-size: 14px;
@@ -197,7 +200,7 @@ button {
 
 .note-style {
   padding: 10px;
-  border: 2px solid dodgerblue;
+  border: 2px solid #0077d8;
   border-radius: 10px;
   margin: 10px 0;
   display: flex;
@@ -217,7 +220,7 @@ button {
 
 .modal-cancel {
   margin-top: 30px;
-  background-color: darkkhaki;
+  background-color: #7f7900;
   border-radius: 10px;
 }
 
@@ -227,7 +230,7 @@ button {
 
 .desc-style {
   text-decoration: underline;
-  color: dodgerblue;
+  color: #0077d8;
 }
 
 .note-subject {
@@ -235,7 +238,7 @@ button {
 }
 
 .journal-delete {
-  background-color: red;
+  background-color: #ee0000;
   padding: 10px;
   border-radius: 10px;
 }

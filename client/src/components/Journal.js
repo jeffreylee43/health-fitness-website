@@ -53,7 +53,7 @@ function Journal() {
                 return (
                     <div className="note-style" key={note._id}>
                         <div className="col-note" id={note._id}>
-                            <h3 className="note-subject">{note.subject}</h3>
+                            <h2 className="note-subject">{note.subject}</h2>
                             <p><span className="desc-style">Exercise Name</span>: {note.exerciseName}</p>
                             <p><span className="desc-style">Number of sets</span>: {note.sets}</p>
                             <p><span className="desc-style">Number of reps</span>: {note.reps}</p>
@@ -70,7 +70,7 @@ function Journal() {
                 return (
                     <div className="note-style" key={note._id}>
                         <div className="col-note" id={note._id}>
-                            <h3 className="note-subject">{note.subject}</h3>
+                            <h2 className="note-subject">{note.subject}</h2>
                             <p><span className="desc-style">Food Name</span>: {note.foodName}</p>
                             <p><span className="desc-style">Food Type</span>: {note.foodType}</p>
                             <p><span className="desc-style">Calories</span>: {note.calories}</p>
@@ -87,7 +87,7 @@ function Journal() {
                 return (
                     <div className="note-style" key={note._id}>
                         <div className="col-note" id={note._id}>
-                            <h3 className="note-subject">{note.subject}</h3>
+                            <h2 className="note-subject">{note.subject}</h2>
                             <p><span className="desc-style">Subject</span>: {note.titleSubject}</p>
                             <p><span className="desc-style">Comments</span>: {note.comments}</p>
                         </div>
