@@ -54,6 +54,9 @@ const NavigationNonAuth = () => {
     <nav className="navigation">
       <ul className="nav-list">
         <li>
+          <p className="nav-logo">FitU</p>
+        </li>
+        <li>
           <NavLink exact to="/" className="nav-link" activeClassName="active">
             Home
           </NavLink>

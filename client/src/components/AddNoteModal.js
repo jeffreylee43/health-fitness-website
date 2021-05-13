@@ -74,11 +74,6 @@ function AddNoteModal(props) {
     }
 
     if(props.modal === 'workoutNote') {
-        let exerciseName;
-        let comments;
-        let sets;
-        let reps;
-        let date;
         items = (
             <>
             <h2 className="modal-title">Add Workout Note</h2>
@@ -86,27 +81,27 @@ function AddNoteModal(props) {
                 <div className="input-style">
                     <label htmlFor="exerciseName">Exercise Name:</label>
                     <br/>
-                    <input ref={(node)=> {exerciseName=node;}} name="exerciseName" id="exerciseName" type="text" placeholder="Enter the exercise name..." required/>
+                    <input name="exerciseName" id="exerciseName" type="text" placeholder="Enter the exercise name..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="sets">Number of Sets:</label>
                     <br/>
-                    <input ref={(node)=> {sets=node;}} name="sets" id="sets" type="number" placeholder="Enter the number of sets..." required/>
+                    <input name="sets" id="sets" type="number" placeholder="Enter the number of sets..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="reps">Number of Reps:</label>
                     <br/>
-                    <input ref={(node)=> {reps=node;}} name="reps" id="reps" type="number" placeholder="Enter the number of reps..." required/>
+                    <input name="reps" id="reps" type="number" placeholder="Enter the number of reps..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="date">Date of Exercise Performed:</label>
                     <br/>
-                    <input ref={(node)=> {date=node;}} name="date" id="date" type="date" placeholder="Enter the date of when you performed this exercise..." required/>
+                    <input name="date" id="date" type="date" placeholder="Enter the date of when you performed this exercise..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="comments">Additional comments:</label>
                     <br/>
-                    <textarea ref={(node)=> {comments=node;}} className="large-input" name="comments" id="comments" type="text" placeholder="Enter any additional comments..." required/>
+                    <textarea className="large-input" name="comments" id="comments" type="text" placeholder="Enter any additional comments..." required/>
                 </div>
                 <div className="input-style">
                     <button className="btn-style" type="submit">Add</button>
@@ -117,11 +112,6 @@ function AddNoteModal(props) {
     }
 
     if(props.modal === 'dietNote') {
-        let foodName;
-        let calories;
-        let foodType;
-        let date;
-        let comments;
         items = (
             <>
             <h2 className="modal-title">Add Diet Note</h2>
@@ -129,7 +119,7 @@ function AddNoteModal(props) {
                 <div className="input-style">
                     <label htmlFor="foodName">Food Name:</label>
                     <br/>
-                    <input ref={(node)=> {foodName=node;}} name="foodName" id="foodName" type="text" placeholder="Enter the food name you ate..." required/>
+                    <input name="foodName" id="foodName" type="text" placeholder="Enter the food name you ate..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="foodType">
@@ -147,17 +137,17 @@ function AddNoteModal(props) {
                 <div className="input-style">
                     <label htmlFor="calories">Calories:</label>
                     <br/>
-                    <input ref={(node)=> {calories=node;}} name="calories" id="calories" type="number" min="0" placeholder="Enter the total calories of the food..." required/>
+                    <input name="calories" id="calories" type="number" min="0" placeholder="Enter the total calories of the food..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="date">Date of Food Eaten:</label>
                     <br/>
-                    <input ref={(node)=> {date=node;}} name="date" id="date" type="date" placeholder="Enter the date of when you ate this food..." required/>
+                    <input name="date" id="date" type="date" placeholder="Enter the date of when you ate this food..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="comments">Additional comments:</label>
                     <br/>
-                    <textarea ref={(node)=> {comments=node;}} className="large-input" name="comments" id="comments" type="text" placeholder="Enter any additional comments..." required/>
+                    <textarea className="large-input" name="comments" id="comments" type="text" placeholder="Enter any additional comments..." required/>
                 </div>
                 <div className="input-style">
                     <button className="btn-style" type="submit">Add</button>
@@ -168,8 +158,6 @@ function AddNoteModal(props) {
     }
 
     if(props.modal === 'otherNote') {
-        let titleSubject;
-        let comments;
         items = (
             <>
             <h2 className="modal-title">Add Other Note</h2>
@@ -177,12 +165,12 @@ function AddNoteModal(props) {
                 <div className="input-style">
                     <label htmlFor="titleSubject">Subject:</label>
                     <br/>
-                    <input ref={(node)=> {titleSubject=node;}} name="titleSubject" id="titleSubject" type="text" placeholder="Enter the subject of this note..." required/>
+                    <input name="titleSubject" id="titleSubject" type="text" placeholder="Enter the subject of this note..." required/>
                 </div>
                 <div className="input-style">
                     <label htmlFor="comments">Comments:</label>
                     <br/>
-                    <textarea ref={(node)=> {comments=node;}} className="large-input" name="comments" id="comments" type="text" placeholder="Enter the desired comments..." required/>
+                    <textarea className="large-input" name="comments" id="comments" type="text" placeholder="Enter the desired comments..." required/>
                 </div>
                 <div className="input-style">
                     <button className="btn-style" type="submit">Add</button>

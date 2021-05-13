@@ -107,13 +107,13 @@ function Journal() {
         });
     } if(loading) {
         return (
-            <div>
+            <div className="intro-text">
                 <p>Loading...</p>
             </div>
         )
     } if(error) {
         return(
-            <div>
+            <div className="intro-text">
                 <p>Error</p>
             </div>
         );
