@@ -134,6 +134,7 @@ button {
 
 .intro-text {
   text-align: center;
+  padding-top: 10px;
 }
 
 .recommendation {
@@ -195,5 +196,46 @@ button {
 }
 
 .note-style {
-  padding: 10px 0;
+  padding: 10px;
+  border: 2px solid dodgerblue;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.col-note {
+  flex: 50%;
+}
+
+.modal-title {
+  padding-bottom: 15px;
+}
+
+.input-style {
+  padding: 5px 0;
+}
+
+.modal-cancel {
+  margin-top: 30px;
+  background-color: darkkhaki;
+  border-radius: 10px;
+}
+
+.journal-div-style {
+  padding: 40px;
+}
+
+.desc-style {
+  text-decoration: underline;
+  color: dodgerblue;
+}
+
+.note-subject {
+  padding-bottom: 5px;
+}
+
+.journal-delete {
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
 }
