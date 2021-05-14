@@ -125,11 +125,11 @@ button {
   background: #3a2b58;
 }
 
-.welcome{
+.welcome {
   text-align: center;
   font-size: 48px;
   vertical-align: middle;
-  line-height: 90px; 
+  line-height: 90px;
 }
 
 .intro-text {
@@ -213,6 +213,17 @@ button {
   width: auto;
   padding: 10px;
   font-size: 14px;
+}
+.social-btn-style {
+  text-align: center;
+
+  border-radius: 10px;
+  background-color: #0077d8;
+  width: auto;
+  padding: 10px;
+  font-size: 14px;
+  margin: 0 auto;
+  display: block;
 }
 
 .btn-div {
