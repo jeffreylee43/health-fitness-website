@@ -25,7 +25,7 @@ function Social() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get(`/social/${currentUser.email}`);
+        const { data } = await axios.get(`/social/`);
         setPData(data);
         setLoading(false);
       } catch (e) {
@@ -46,7 +46,6 @@ function Social() {
     items.map((post) => {
       return (
         <div className="note-style" key={post._id}>
-          <h1>hi</h1>
           <div className="col-note" id={post._id}>
             <h2 className="note-subject">{post.name}</h2>
             <p>
