@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
-import { AuthContext } from "../firebase/Auth";
 import axios from "axios";
 import AddNoteModal from "./AddNoteModal";
 
@@ -10,7 +9,6 @@ function Social() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   //   const [deleteToggle, setDeleteToggle] = useState(true);
-  const { currentUser } = useContext(AuthContext);
   const [modalType, setModalType] = useState("");
 
   const handleCloseModal = () => {
@@ -41,9 +39,9 @@ function Social() {
   //
 
   if (PData) {
-    items.push(PData);
-    console.log(items);
-    items.map((post) => {
+    // items.push(PData);
+    // console.log(items);
+    items = PData.map((post) => {
       return (
         <div className="note-style" key={post._id}>
           <div className="col-note" id={post._id}>
@@ -54,9 +52,6 @@ function Social() {
             <p>
               <span className="desc-style">Post</span>: {post.postBody}
             </p>
-          </div>
-          <div className="col-delete">
-            <button className="journal-delete">Delete</button>
           </div>
         </div>
       );
