@@ -35,9 +35,8 @@ router.get("/:email", async (req, res) => {
   }
   try {
     // console.log("went thru");
-    const getPost = await social.getPost(email);
-    // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
-    return res.send([getPost]);
+    const getPosts = await social.getAllByUser(email);
+    return res.send(getPosts);
   } catch (e) {
     return res.status(400).json({ error: e });
   }
@@ -49,6 +48,25 @@ router.get("/", async (req, res) => {
     res.status(200).send(allPosts);
   } catch (e) {
     res.status(500).send();
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  if (!req.params.id) {
+    res.status(400).json({ error: "You must Supply and ID to delete" });
+    return;
+  }
+  try {
+    await social.getPostByID(req.params.id);
+  } catch (e) {
+    res.status(404).json({ error: "Post not found" });
+    return;
+  }
+  try {
+    await social.remove(req.params.id);
+    res.sendStatus(200);
+  } catch (e) {
+    res.status(500).json({ error: e });
   }
 });
 

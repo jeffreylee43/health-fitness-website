@@ -45,19 +45,31 @@ module.exports = {
 
     return foundPost;
   },
-  async getPost(email) {
-    if(!email || typeof email !== 'string' || email === "" || email.trim() === "") throw 'The email must be provided';
+  async getAll() {
+    const postCollection = await social();
+
+    const posts = await postCollection.find({}).toArray();
+    return posts;
+  },
+  async getAllByUser(email) {
+    const postCollection = await social();
+
+    const posts = await postCollection.find({ email: email }).toArray();
+    return posts;
+  },
+  async remove(id) {
+    if (!id) throw "Error: no ID provided";
+    if (typeof id != "string" || id == "")
+      throw "Error: ID must be a string and must not be empty";
+    if (!id || !ObjectId.isValid(id))
+      throw "Error: must provide a valid ID to search for";
 
     const postCollection = await social();
-    const foundEmail = await postCollection.findOne({email: email},{sort: {_id: -1}, limit: 1 });
-    if(foundEmail === null) throw 'There are no emails with the email address provided.';
-    // console.log(foundEmail)
-    return foundEmail;
-},
-async getAll() {
-  const postCollection = await social();
-
-  const posts = await postCollection.find({}).toArray();
-  return posts;
-}
+    let parsedId = ObjectId(id);
+    const book = await postCollection.findOne({ _id: parsedId });
+    const deletionInfo = await postCollection.removeOne({ _id: parsedId });
+    if (deletionInfo.deletedCount === 0)
+      throw `Could not find/delete book with id of ${id}`;
+    return `${book.title} has been successfully deleted`;
+  },
 };
