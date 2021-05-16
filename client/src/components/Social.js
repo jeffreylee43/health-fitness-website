@@ -6,6 +6,7 @@ import AddNoteModal from "./AddNoteModal";
 function Social() {
   const [modal, setModal] = useState(false);
   const [PData, setPData] = useState([]);
+  const [likedToggle, setLikedToggle] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   //   const [deleteToggle, setDeleteToggle] = useState(true);
@@ -18,6 +19,15 @@ function Social() {
   const handleOpenModal = (type) => {
     setModalType(type);
     setModal(true);
+  };
+  const handleLikedPost = async (id) => {
+    try {
+      await axios.post(`/social/${id}`);
+      // console.log("You have liked this post with the id of: " +id)
+      setLikedToggle(!likedToggle);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -33,7 +43,7 @@ function Social() {
       }
     }
     fetchData();
-  }, [modal]);
+  }, [modal,likedToggle]);
 
   let items = [];
   //
@@ -53,6 +63,11 @@ function Social() {
               <span className="desc-style">Post</span>: {post.postBody}
             </p>
           </div>
+          <div className="col-delete">
+                  <button
+                    className="post-like"
+                    onClick={() => handleLikedPost(post._id)}>Likes: {post.likedCounter}</button> 
+                </div>
         </div>
       );
     });

@@ -12,8 +12,8 @@ const Home = (props) => {
   const { currentUser } = useContext(AuthContext);
 
   const handleDeleteNote = async (id) => {
-    try {
-      const deletedPost = await axios.delete(`/social/${id}`);
+    try { 
+      await axios.delete(`/social/${id}`);
       setDeleteToggle(!deleteToggle);
     } catch (e) {
       console.log(e);

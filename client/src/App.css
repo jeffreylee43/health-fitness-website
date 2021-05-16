@@ -276,6 +276,11 @@ button {
   padding: 10px;
   border-radius: 10px;
 }
+.post-like{
+  background-color: #0077d8;
+  padding: 10px;
+  border-radius: 10px;
+}
 
 .profile-div {
   text-align: center;

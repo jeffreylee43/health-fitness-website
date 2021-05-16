@@ -16,7 +16,7 @@ function SignUp() {
         }
         try {
             await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
-            const postReturn = await axios.post('/users', {
+            await axios.post('/users', {
                 name: displayName.value,
                 email: email.value,
                 // password: passwordTwo.value,
