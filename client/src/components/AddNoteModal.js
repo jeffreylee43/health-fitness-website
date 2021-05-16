@@ -78,6 +78,7 @@ function AddNoteModal(props) {
         email: currentUser.email,
         subject: titleSubject.value,
         postBody: post.value,
+        likedCounter: 0
       });
       props.handleClose();
     } catch (e) {
