@@ -4,7 +4,7 @@ const data = require("../data");
 const social = data.social;
 
 router.post("/addPost", async (req, res) => {
-  let { email, name, subject, postBody } = req.body;
+  let { email, name, subject, postBody, likedCounter } = req.body;
   if (!email || email === "" || email.trim() === "") {
     return res.status(400).json({ error: "You must provide all fields." });
   }
@@ -19,7 +19,7 @@ router.post("/addPost", async (req, res) => {
   }
 
   try {
-    const addPost = await social.addPost(email, name, subject, postBody);
+    const addPost = await social.addPost(email, name, subject, postBody, likedCounter);
     // const getJournal = await journal.getJournal(email);
     // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
     return res.sendStatus(200);
@@ -53,7 +53,7 @@ router.get("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   if (!req.params.id) {
-    res.status(400).json({ error: "You must Supply and ID to delete" });
+    res.status(400).json({ error: "You must Supply an ID to delete" });
     return;
   }
   try {
@@ -67,6 +67,20 @@ router.delete("/:id", async (req, res) => {
     res.sendStatus(200);
   } catch (e) {
     res.status(500).json({ error: e });
+  }
+});
+
+router.post("/:id", async (req, res) => {
+  if (!req.params.id) {
+    res.status(400).json({ error: "You must Supply an ID to update the like counter" });
+    return;
+  }
+
+  try {
+    const updateLike = await social.updateLike(req.params.id);
+    return res.sendStatus(200);
+  } catch (e) {
+    return res.status(400).json({ error: e });
   }
 });
 
