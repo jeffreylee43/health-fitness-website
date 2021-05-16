@@ -36,6 +36,7 @@ const Home = () =>{
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const {currentUser} = useContext(AuthContext);
+    console.log(currentUser);
 
     const recommendWorkout = (number) => {
         const workouts = [
