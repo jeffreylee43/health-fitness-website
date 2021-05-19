@@ -63,7 +63,7 @@ const Home = (props) => {
       <div className="profile-div">
         <h1 className="intro-text">Profile</h1>
         <ul className="profile-list">
-        <img className="proImage" src= {pro5} alt={userInfo.profilepic}></img>
+        <img className="proImage" src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt={userInfo.profilepic}></img>
           <li>
             <span className="desc-style">Name</span>: {userInfo.name}
           </li>

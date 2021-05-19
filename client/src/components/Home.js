@@ -13,7 +13,7 @@ import sitUpsPic from "../img/sit-ups.jpg";
 import calfRaisesPic from "../img/calf-raises.jpg";
 import jumpingJacksPic from "../img/jumping-jacks.png";
 import squatsPic from "../img/squats.jpg";
-import pushUpsPic from "../img/push-ups.jpg";
+import pushUpsPic from "../img/pushups.jpg";
 import bicepCurlsPic from "../img/bicep-curls.jpg";
 import lungesPic from "../img/lunges.jpg";
 import burpeesPic from "../img/burpees.jpg";
