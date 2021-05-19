@@ -9,7 +9,7 @@ function SignUp() {
     const [pwMatch, setPwMatch] = useState('');
     const handleSignUp = async (e) => {
         e.preventDefault();
-        const { displayName, email, passwordOne, passwordTwo, age, gender, height, skill } = e.target.elements;
+        const { displayName, email, passwordOne, passwordTwo, age, gender, height, skill, profilepic } = e.target.elements;
         if (passwordOne.value !== passwordTwo.value) {
             setPwMatch('Passwords do not match');
             return false;
@@ -23,7 +23,8 @@ function SignUp() {
                 age: age.value,
                 gender: gender.value,
                 height: height.value,
-                skill: skill.value
+                skill: skill.value,
+                profilepic: profilepic.value
             });
         } catch (error) {
             alert(error);
@@ -93,6 +94,12 @@ function SignUp() {
                         <option value="intermediate">Intermediate</option>
                         <option value="advanced">Advanced</option>
                     </select>
+                </label>
+            </div>
+            <div>
+                <label htmlFor="profilepic">
+                    Upload a profile picture:
+                    <input type="file" name="profilepic" id="profilepic"></input>
                 </label>
             </div>
             <button className="btn-style" id="submitButton" name="submitButton" type="submit">

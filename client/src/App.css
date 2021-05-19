@@ -21,6 +21,14 @@ button {
   cursor: pointer;
 }
 
+.proImage{
+  width: 250px;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
 .login {
   width: 100%;
   min-height: 100vh;

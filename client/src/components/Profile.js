@@ -1,7 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
-import "../App.css";
-import { AuthContext } from "../firebase/Auth";
-import axios from "axios";
+import React, {useContext, useState, useEffect} from 'react';
+import '../App.css';
+import { AuthContext } from '../firebase/Auth';
+import axios from 'axios';
+
+import pro1  from "../img/pro1.jpg";
+import pro2  from "../img/pro2.jpg";
+import pro3  from "../img/pro3.jpg";
+import pro4  from "../img/pro4.jpg";
+import pro5  from "../img/pro5.jpg";
+import pro6  from "../img/pro6.jpg";
 
 const Home = (props) => {
   const [userInfo, setUserInfo] = useState({});
@@ -56,6 +63,7 @@ const Home = (props) => {
       <div className="profile-div">
         <h1 className="intro-text">Profile</h1>
         <ul className="profile-list">
+        <img className="proImage" src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt={userInfo.profilepic}></img>
           <li>
             <span className="desc-style">Name</span>: {userInfo.name}
           </li>
