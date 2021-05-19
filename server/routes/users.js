@@ -3,12 +3,12 @@ const router = express.Router();
 const data = require('../data');
 const users = data.users;
 
-// const bluebird = require('bluebird');
-// const redis = require('redis');
-// const client = redis.createClient();
+const bluebird = require('bluebird');
+const redis = require('redis');
+const client = redis.createClient();
 
-// bluebird.promisifyAll(redis.RedisClient.prototype);
-// bluebird.promisifyAll(redis.Multi.prototype);
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
 
 router.post('/', async (req,res) => {
     let {name, email, age, gender, height, skill, profilepic} = req.body;
@@ -54,8 +54,14 @@ router.get('/:email', async (req,res) => {
         return res.status(400).json({error: "You must provide an email."});
     }
 
+    let getUserCache = await client.getAsync(`getUserInfo${email}`);
+    if(getUserCache) {
+        return res.status(200).json(JSON.parse(getUserCache));
+    }
+
     try {
         const getUser = await users.getUserByEmail(email);
+        await client.setAsync(`getUserInfo${email}`, JSON.stringify(getUser));
         return res.status(200).json(getUser);
     } catch(e) {
         return res.status(400).json({error: "Could not get user"});

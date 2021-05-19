@@ -19,7 +19,7 @@ module.exports = {
 
         let newUser = {
             name: name,
-            email: email,
+            email: email.toLowerCase(),
             age: age,
             gender: gender,
             height: height,
