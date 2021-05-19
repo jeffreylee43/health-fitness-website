@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useState, useEffect} from 'react';
 import "../App.css";
 import axios from "axios";
+import { AuthContext } from '../firebase/Auth';
 import AddNoteModal from "./AddNoteModal";
 
 function Social() {
   const [modal, setModal] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
   const [PData, setPData] = useState([]);
   const [likedToggle, setLikedToggle] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   //   const [deleteToggle, setDeleteToggle] = useState(true);
   const [modalType, setModalType] = useState("");
+  const { currentUser } = useContext(AuthContext);
 
   const handleCloseModal = () => {
     setModal(false);
@@ -22,9 +25,13 @@ function Social() {
   };
   const handleLikedPost = async (id) => {
     try {
-      await axios.post(`/social/${id}`);
+      await axios.post(`/social/${currentUser.email}/${id}`);
       // console.log("You have liked this post with the id of: " +id)
-      setLikedToggle(!likedToggle);
+      if (likedToggle === 0){
+        setLikedToggle(1);
+      } else {
+        setLikedToggle(0);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -33,8 +40,10 @@ function Social() {
   useEffect(() => {
     async function fetchData() {
       try {
+        const { data2 } = await axios.get(`/users/${currentUser.email}`);
         const { data } = await axios.get(`/social/`);
         setPData(data);
+        setUserInfo(data2);
         setLoading(false);
       } catch (e) {
         console.log(e);

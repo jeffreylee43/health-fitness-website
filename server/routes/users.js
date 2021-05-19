@@ -32,7 +32,7 @@ router.post('/', async (req,res) => {
     if(!skill || skill==="" || skill.trim() === "") {
         return res.status(400).json({error: "You must provide all fields."});
     }
-    if(!profilepic || profilepic==="" || profilepic.trim() === "") {
+    if(!profilepic || profilepic==="") {
         profilepic = "noImage.jpg";
     }
 

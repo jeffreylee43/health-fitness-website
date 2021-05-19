@@ -283,6 +283,7 @@ function AddNoteModal(props) {
             <label htmlFor="titleSubject">Subject:</label>
             <br />
             <input
+              className="subject-input"
               name="titleSubject"
               id="titleSubject"
               type="text"

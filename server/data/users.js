@@ -1,7 +1,7 @@
 const mongoCollections = require('../config/mongoCollections');
 const users = mongoCollections.users;
 const { ObjectId } = require('mongodb');
-
+const social = require("./social");
 
 module.exports = {
     async addNewUser(name, email, age, gender, height, skill, profilepic) {
@@ -25,7 +25,8 @@ module.exports = {
             height: height,
             skill: skill,
             profilepic: profilepic,
-            journal: []
+            journal: [],
+            likedPosts: []
         }
 
         const insertUser = await userCollection.insertOne(newUser);
@@ -59,17 +60,67 @@ module.exports = {
 
         const foundUser = await userCollection.findOne({email: email});
         if(foundUser === null) throw 'There are no users with the email provided.';
+        return foundUser;
+    },
 
-        let sendUser = {
-            name: foundUser.name,
-            email: foundUser.email,
-            age: foundUser.age,
-            gender: foundUser.gender,
-            height: foundUser.height,
-            skill: foundUser.skill,
-            profilepic: foundUser.profilepic
+    async addLikedPost(email, postid){
+        if(!email || email === "" || email.trim() === "") throw 'A non-empty email must be provided';
+        const user1 = await this.getUserByEmail(email);
+        const UserCollection = await users();
+        let updatedUserData = {};
+        let arr = user1.likedPosts;
+        let isNewPost = true;
+        for (let fl of arr) {
+            if (fl == postid) {
+                isNewPost = false;
+            }
         }
+        if (isNewPost) {
+            arr.push(postid);
+            updatedUserData.likedPosts = arr;
+            const updatedInfo = await UserCollection.updateOne(
+                { _id: user1._id },
+                { $set: updatedUserData }
+            );
+            if (updatedInfo.modifiedCount === 0) {
+                throw 'could not update users liked posts successfully';
+            }
+        }
+        return isNewPost;
+    },
+    async removeLikedPost(email, postid){
+        if(!email || email === "" || email.trim() === "") throw 'A non-empty email must be provided';
+        const user1 = await this.getUserByEmail(email);
+        const UserCollection = await users();
+        let updatedUserData = {};
+        let arr = user1.likedPosts;
 
-        return sendUser;
+        for(let i = 0; i < arr.length; i++){          
+            if (arr[i] === postid) { 
+                arr.splice(i, 1);
+            }
+        }
+        updatedUserData.likedPosts = arr;   
+        const updatedInfo = await UserCollection.updateOne(
+            { _id: user1._id },
+            { $set: updatedUserData }
+        );
+        if (updatedInfo.modifiedCount === 0) {
+            throw 'could not update users liked posts successfully';
+        }
+        return true;
+    },
+    async getAllLikedByUser(email){
+        if(!email || email === "" || email.trim() === "") throw 'A non-empty email must be provided';
+        const user1 = await this.getUserByEmail(email);
+        let arr = user1.likedPosts;
+        let outputarr = [];
+        
+        for (let fl of arr) {
+            const likedpost = await social.getPostByID(fl);
+            outputarr.push(likedpost);
+        }
+        return outputarr;
     }
+    
 };

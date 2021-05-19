@@ -27,6 +27,8 @@ button {
   border-radius: 50%;
   transform: scale(1);
   transition: all 0.9s ease 0s;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .login {
@@ -143,6 +145,7 @@ button {
 .intro-text {
   text-align: center;
   padding-top: 15px;
+  padding-bottom: 20px;
 }
 
 .recommendation {
@@ -153,12 +156,27 @@ button {
   border-radius: 10px;
 }
 
+.large-input{
+  height: 250px;
+  width: 800px;
+}
+
+.subject-input{
+  height: 30px;
+  width: 200px;
+}
+
 .btn-style {
   border-radius: 10px;
   background-color: #0077d8;
   width: auto;
   padding: 10px;
   font-size: 14px;
+}
+
+.homeQuote{
+  padding: 30px;
+  text-align: center;
 }
 
 .forgot-btn {
@@ -294,7 +312,9 @@ button {
 }
 
 .desc-style {
-  text-decoration: underline;
+  text-decoration: Bold;
+  margin-bottom: 10px;
+  padding: 5px;
   color: #0077d8;
   font-weight: bold;
 }
@@ -333,9 +353,20 @@ button {
 }
 
 .profile-div {
+  padding-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
   text-align: center;
+  font-family: arial;
 }
 
+.postList{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+}
 .profile-list {
+  list-style: none;
   margin-top: 10px;
 }

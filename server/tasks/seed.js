@@ -9,8 +9,8 @@ const main = async () => {
 
     /* Create user 1 */
     await users.addNewUser("Alex Smith", "seeduser@email.com", 21, "male", 60, "beginner");
-    await users.addNewUser("Alex Smith", "seeduser1@email.com", 20, "male", 60, "beginner");
-    await users.addNewUser("Alex Smith", "seeduser2@email.com", 20, "male", 51, "beginner");
+    await users.addNewUser("Bob Jones", "seeduser1@email.com", 20, "male", 60, "beginner");
+    await users.addNewUser("Tyrone Lim", "seeduser2@email.com", 20, "male", 51, "beginner");
     await users.addNewUser("Alex Smith", "seeduser3@email.com", 20, "male", 51, "beginner");
     await users.addNewUser("Alex Smith", "seeduser4@email.com", 20, "male", 51, "beginner");
     await users.addNewUser("Alex Smith", "seeduser5@email.com", 21, "male", 51, "beginner");
@@ -191,6 +191,8 @@ const main = async () => {
     await journal.addOtherNote("Other", "seeduser10@email.com", "To Do2", "I am going to make a resolution.");
     await journal.addOtherNote("Other", "seeduser10@email.com", "To Do3", "I am going to make a resolution.");
     await journal.addOtherNote("Other", "seeduser10@email.com", "To Do4", "I am going to make a resolution.");
+
+
     
     await db.serverConfig.close();
 }
