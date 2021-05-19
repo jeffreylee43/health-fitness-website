@@ -100,8 +100,7 @@ const Home = () => {
               {workouts[level][number].name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Sets: {workouts[level][number].sets}, Reps:{" "}
-              {workouts[level][number].reps}
+              Sets: {workouts[level][number].sets}, Reps: {workouts[level][number].reps}
             </Typography>
           </CardContent>
         </Card>
@@ -147,7 +146,7 @@ const Home = () => {
       <div className="home">
         <div>
           <h1 className="intro-text">Welcome {userInfo.name}!</h1>
-          <p></p>
+          <p className="intro-text">Check out your personal journal and see what others have to say on the social page!</p>
         </div>
 
         <div className="recommendation">
