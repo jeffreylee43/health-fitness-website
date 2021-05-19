@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const data = require('../data');
 const users = data.users;
+const gm = require('gm').subClass({imageMagick: true});
+const pro1 =  "../img/pro1.jpg";
+
 
 const bluebird = require('bluebird');
 const redis = require('redis');
@@ -9,6 +12,14 @@ const client = redis.createClient();
 
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
+
+gm(pro1)
+.blur(8, 1)
+.write('client/src/img/profileImage.jpeg', function (err) {
+  if (err) {
+    console.log(err)
+  }
+})
 
 router.post('/', async (req,res) => {
     let {name, email, age, gender, height, skill, profilepic} = req.body;
