@@ -4,13 +4,16 @@ const { ObjectId } = require('mongodb');
 
 
 module.exports = {
-    async addNewUser(name, email, age, gender, height, skill) {
+    async addNewUser(name, email, age, gender, height, skill, profilepic) {
         if(!name || typeof name !== 'string') throw 'You must provide valid name';
         if(!email) throw 'Email must be provided'
         if(!age || typeof age !== "number") throw 'Your age must be provided and must be a number.';
         if(!gender || typeof gender !== 'string') throw 'Your gender must be provided and must be a string.';
         if(!height || typeof height !== "number") throw 'Your height must be provided and must be a number.';
         if(!skill || typeof skill !== 'string') throw 'Your skill must be provided and must be a string.';
+        if(!profilepic){
+            profilepic = "noImage.jpg";
+        }
 
         const userCollection = await users();
 
@@ -21,6 +24,7 @@ module.exports = {
             gender: gender,
             height: height,
             skill: skill,
+            profilepic: profilepic,
             journal: []
         }
 
@@ -62,7 +66,8 @@ module.exports = {
             age: foundUser.age,
             gender: foundUser.gender,
             height: foundUser.height,
-            skill: foundUser.skill
+            skill: foundUser.skill,
+            profilepic: foundUser.profilepic
         }
 
         return sendUser;

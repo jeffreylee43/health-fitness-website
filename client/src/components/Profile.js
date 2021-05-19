@@ -43,6 +43,7 @@ const Home = () =>{
             <div className="profile-div"> 
                 <h1 className="intro-text">Profile</h1>
                 <ul className="profile-list">
+                    <li><span className="desc-style">Pic:</span>: {userInfo.profilepic}</li>
                     <li><span className="desc-style">Name</span>: {userInfo.name}</li>
                     <li><span className="desc-style">Email</span>: {userInfo.email}</li>
                     <li><span className="desc-style">Age</span>: {userInfo.age}</li>

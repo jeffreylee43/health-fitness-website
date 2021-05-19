@@ -11,7 +11,7 @@ const users = data.users;
 // bluebird.promisifyAll(redis.Multi.prototype);
 
 router.post('/', async (req,res) => {
-    let {name, email, age, gender, height, skill} = req.body;
+    let {name, email, age, gender, height, skill, profilepic} = req.body;
 
     if(!name || name==="" || name.trim() === "") {
         return res.status(400).json({error: "You must provide all fields."});
@@ -31,12 +31,15 @@ router.post('/', async (req,res) => {
     if(!skill || skill==="" || skill.trim() === "") {
         return res.status(400).json({error: "You must provide all fields."});
     }
+    if(!profilepic || profilepic==="" || profilepic.trim() === "") {
+        profilepic = "noImage.jpg";
+    }
 
     const parsedAge = parseInt(age);
     const parsedHeight = parseInt(height);
 
     try {
-        const newUser = await users.addNewUser(name, email, parsedAge, gender, parsedHeight, skill);
+        const newUser = await users.addNewUser(name, email, parsedAge, gender, parsedHeight, skill, profilepic);
         return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: "Could not add new user"});
