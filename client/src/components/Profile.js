@@ -105,7 +105,7 @@ const Home = (props) => {
           }))
         }
         <div className="journal-div-style">
-        {items.length === 0 ? <p>No posts have been made.</p>: "You have " + items.length + " total posts."}
+        {items.length === 0 ? <p>No posts have been made.</p>: ""}
         {console.log(items.length)}
         </div>
       </div>
