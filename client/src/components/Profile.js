@@ -103,6 +103,9 @@ const Home = (props) => {
             );
           }))
         }
+        <div className="journal-div-style">
+          {items.length === 0 ? <p>No posts created by you.</p> : ""}
+        </div>
       </div>
     );
   }
