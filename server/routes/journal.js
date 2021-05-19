@@ -3,12 +3,12 @@ const router = express.Router();
 const data = require('../data');
 const journal = data.journal;
 
-// const bluebird = require('bluebird');
-// const redis = require('redis');
-// const client = redis.createClient();
+const bluebird = require('bluebird');
+const redis = require('redis');
+const client = redis.createClient();
 
-// bluebird.promisifyAll(redis.RedisClient.prototype);
-// bluebird.promisifyAll(redis.Multi.prototype);
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
 
 router.post('/addWorkoutNote', async (req,res) => {
     let {subject, email, exerciseName, comments, sets, reps, date} = req.body;
@@ -40,8 +40,8 @@ router.post('/addWorkoutNote', async (req,res) => {
 
     try {
         const addNote = await journal.addWorkoutNote(subject, email, exerciseName, comments, parsedSets, parsedReps, date);
-        // const getJournal = await journal.getJournal(email);
-        // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
+        const getJournal = await journal.getJournal(email);
+        await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
         return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: e});
@@ -78,8 +78,8 @@ router.post('/addDietNote', async (req,res) => {
 
     try {
         const addNote = await journal.addDietNote(subject, email, foodName, parsedCalories, foodType, date, comments);
-        // const getJournal = await journal.getJournal(email);
-        // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
+        const getJournal = await journal.getJournal(email);
+        await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
         return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: e});
@@ -105,8 +105,8 @@ router.post('/addOtherNote', async (req,res) => {
 
     try {
         const addNote = await journal.addOtherNote(subject, email, titleSubject, comments);
-        // const getJournal = await journal.getJournal(email);
-        // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
+        const getJournal = await journal.getJournal(email);
+        await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
         return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: e});
@@ -120,14 +120,14 @@ router.get('/:email', async (req,res) => {
         return res.status(400).json({error: "You must provide all fields."});
     }
 
-    // let journalEmail = await client.getAsync(`journal${email}`);
-    // if(journalEmail) {
-    //     return res.send(JSON.parse(journalEmail));
-    // }
+    let journalEmail = await client.getAsync(`journal${email}`);
+    if(journalEmail) {
+        return res.send(JSON.parse(journalEmail));
+    }
 
     try {
         const getJournal = await journal.getJournal(email);
-        // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
+        await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
         return res.send(getJournal);
     } catch(e) {
         return res.status(400).json({error: e});
@@ -145,14 +145,10 @@ router.delete('/deleteNote/:email/:id', async (req,res) => {
         return res.status(400).json({error: "You must provide all fields."});
     }
 
-    // let journalEmail = await client.getAsync(`journal${email}`);
-    // if(journalEmail) {
-    //     return res.send(JSON.parse(journalEmail));
-    // }
-
     try {
         const deleteNote = await journal.deleteNote(email, id);
-        // await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
+        const getJournal = await journal.getJournal(email);
+        await client.setAsync(`journal${email}`, JSON.stringify(getJournal));
         return res.sendStatus(200);
     } catch(e) {
         return res.status(400).json({error: e});

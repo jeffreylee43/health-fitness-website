@@ -239,6 +239,30 @@ button {
   display: flex;
 }
 
+.note-style-workout {
+  padding: 10px;
+  border: 2px solid #0077d8;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.note-style-diet {
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.note-style-other {
+  padding: 10px;
+  border: 2px solid #ee0000;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
 .col-note {
   flex: 50%;
 }
@@ -264,6 +288,24 @@ button {
 .desc-style {
   text-decoration: underline;
   color: #0077d8;
+  font-weight: bold;
+}
+
+.desc-style-workout {
+  text-decoration: underline;
+  color: #0077d8;
+  font-weight: bold;
+}
+
+.desc-style-diet {
+  text-decoration: underline;
+  color: green;
+  font-weight: bold;
+}
+
+.desc-style-other {
+  text-decoration: underline;
+  color: #ee0000;
   font-weight: bold;
 }
 
