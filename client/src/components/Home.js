@@ -6,10 +6,18 @@ import sitUpsPic  from "../img/sit-ups.jpg";
 import calfRaisesPic  from "../img/calf-raises.jpg";
 import jumpingJacksPic  from "../img/jumping-jacks.png";
 import squatsPic  from "../img/squats.jpg";
-import pushUpsPic  from "../img/push-ups.jpg";
+import pushUpsPic  from "../img/pushups.jpg";
 import bicepCurlsPic  from "../img/bicep-curls.jpg";
 import lungesPic  from "../img/lunges.jpg";
 import burpeesPic  from "../img/burpees.jpg";
+import pullupsPic  from "../img/pullups.jpg";
+import planksPic  from "../img/planks.jpg";
+import widepushupsPic  from "../img/widepushups.jpg";
+import diamondpushupsPic  from "../img/diamondpushups.png";
+import mountainclimbersPic  from "../img/mountainclimbers.jpg";
+import sideplanksPic  from "../img/sideplank.jpg";
+import legRaisePic  from "../img/legraise.jpg";
+import crunchesPic  from "../img/crunches.jpg";
 
 import { AuthContext } from '../firebase/Auth';
 import axios from 'axios';
@@ -47,7 +55,16 @@ const Home = () =>{
             {name: "Burpees", img: burpeesPic, sets: "3", reps: "10"}],
             [{name: "High Knees", img: highKneesPic, sets: "3", reps: "20"},
             {name: "Sit-Ups", img: sitUpsPic, sets: "3", reps: "10"},
-            {name: "Calf-Raises", img: calfRaisesPic, sets: "3", reps: "12"}]
+            {name: "Calf-Raises", img: calfRaisesPic, sets: "3", reps: "12"},],
+            [{name: "Pull Ups", img: pullupsPic, sets: "3", reps: "20"},
+            {name: "Planks", img: planksPic, sets: "3", reps: "10"},
+            {name: "Diamond Push-Ups", img: diamondpushupsPic, sets: "3", reps: "12"},],
+            [{name: "Crunches", img: crunchesPic, sets: "3", reps: "20"},
+            {name: "Mountain Climbers", img: mountainclimbersPic, sets: "3", reps: "10"},
+            {name: "Side Planks", img: sideplanksPic, sets: "3", reps: "12"},],
+            [{name: "Wide Push-Ups", img: widepushupsPic, sets: "3", reps: "20"},
+            {name: "Leg Raises", img: legRaisePic, sets: "3", reps: "10"},
+            {name: "Pull-Ups", img: pullupsPic, sets: "3", reps: "12"},],
         ];
 
         return (

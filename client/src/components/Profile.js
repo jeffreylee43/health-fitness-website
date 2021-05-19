@@ -2,6 +2,13 @@ import React, {useContext, useState, useEffect} from 'react';
 import '../App.css';
 import { AuthContext } from '../firebase/Auth';
 import axios from 'axios';
+import pro1  from "../img/pro1.jpg";
+import pro2  from "../img/pro2.jpg";
+import pro3  from "../img/pro3.jpg";
+import pro4  from "../img/pro4.jpg";
+import pro5  from "../img/pro5.jpg";
+import pro6  from "../img/pro6.jpg";
+const im = require('imagemagick');
 
 const Home = () =>{
     let items = null;
@@ -43,7 +50,7 @@ const Home = () =>{
             <div className="profile-div"> 
                 <h1 className="intro-text">Profile</h1>
                 <ul className="profile-list">
-                    <li><span className="desc-style">Pic:</span>: {userInfo.profilepic}</li>
+                <img className="proImage" src= {pro5} alt={userInfo.profilepic}></img>
                     <li><span className="desc-style">Name</span>: {userInfo.name}</li>
                     <li><span className="desc-style">Email</span>: {userInfo.email}</li>
                     <li><span className="desc-style">Age</span>: {userInfo.age}</li>
