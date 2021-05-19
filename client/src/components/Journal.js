@@ -53,24 +53,24 @@ function Journal() {
     items = jData.map((note) => {
       if (note.subject === "Workout") {
         return (
-          <div className="note-style" key={note._id}>
+          <div className="note-style-workout" key={note._id}>
             <div className="col-note" id={note._id}>
               <h2 className="note-subject">{note.subject}</h2>
               <p>
-                <span className="desc-style">Exercise Name</span>:{" "}
+                <span className="desc-style-workout">Exercise Name</span>:
                 {note.exerciseName}
               </p>
               <p>
-                <span className="desc-style">Number of sets</span>: {note.sets}
+                <span className="desc-style-workout">Number of sets</span>: {note.sets}
               </p>
               <p>
-                <span className="desc-style">Number of reps</span>: {note.reps}
+                <span className="desc-style-workout">Number of reps</span>: {note.reps}
               </p>
               <p>
-                <span className="desc-style">Date</span>: {note.date}
+                <span className="desc-style-workout">Date</span>: {note.date}
               </p>
               <p>
-                <span className="desc-style">Comments</span>: {note.comments}
+                <span className="desc-style-workout">Comments</span>: {note.comments}
               </p>
             </div>
             <div className="col-delete">
@@ -86,23 +86,23 @@ function Journal() {
       }
       if (note.subject === "Diet") {
         return (
-          <div className="note-style" key={note._id}>
+          <div className="note-style-diet" key={note._id}>
             <div className="col-note" id={note._id}>
               <h2 className="note-subject">{note.subject}</h2>
               <p>
-                <span className="desc-style">Food Name</span>: {note.foodName}
+                <span className="desc-style-diet">Food Name</span>: {note.foodName}
               </p>
               <p>
-                <span className="desc-style">Food Type</span>: {note.foodType}
+                <span className="desc-style-diet">Food Type</span>: {note.foodType}
               </p>
               <p>
-                <span className="desc-style">Calories</span>: {note.calories}
+                <span className="desc-style-diet">Calories</span>: {note.calories}
               </p>
               <p>
-                <span className="desc-style">Date</span>: {note.date}
+                <span className="desc-style-diet">Date</span>: {note.date}
               </p>
               <p>
-                <span className="desc-style">Comments</span>: {note.comments}
+                <span className="desc-style-diet">Comments</span>: {note.comments}
               </p>
             </div>
             <div className="col-delete">
@@ -118,14 +118,14 @@ function Journal() {
       }
       if (note.subject === "Other") {
         return (
-          <div className="note-style" key={note._id}>
+          <div className="note-style-other" key={note._id}>
             <div className="col-note" id={note._id}>
               <h2 className="note-subject">{note.subject}</h2>
               <p>
-                <span className="desc-style">Subject</span>: {note.titleSubject}
+                <span className="desc-style-other">Subject</span>: {note.titleSubject}
               </p>
               <p>
-                <span className="desc-style">Comments</span>: {note.comments}
+                <span className="desc-style-other">Comments</span>: {note.comments}
               </p>
             </div>
             <div className="col-delete">
