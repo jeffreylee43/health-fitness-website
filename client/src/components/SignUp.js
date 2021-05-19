@@ -24,7 +24,7 @@ function SignUp() {
                 gender: gender.value,
                 height: height.value,
                 skill: skill.value,
-                profilepic: profilepic.value
+                profilepic: "NoImage.jpg"
             });
         } catch (error) {
             alert(error);
@@ -96,12 +96,12 @@ function SignUp() {
                     </select>
                 </label>
             </div>
-            <div>
+            {/* <div>
                 <label htmlFor="profilepic">
                     Upload a profile picture:
                     <input type="file" name="profilepic" id="profilepic"></input>
                 </label>
-            </div>
+            </div> */}
             <button className="btn-style" id="submitButton" name="submitButton" type="submit">
                 Sign Up
             </button>
