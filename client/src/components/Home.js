@@ -46,7 +46,6 @@ const Home = () => {
   let loop = [0, 1, 2];
   const level = Math.floor(Math.random() * 3);
   const level2 = Math.floor(Math.random() * 6);
-  console.log(level2);
 
   const list_quotes = ["“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney",
                         "“The secret of getting ahead is getting started.” – Mark Twain",
