@@ -11,6 +11,7 @@ const Home = (props) => {
   const [error, setError] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
+
   const handleDeleteNote = async (id) => {
     try { 
       await axios.delete(`/social/${id}`);
@@ -103,6 +104,10 @@ const Home = (props) => {
             );
           }))
         }
+        <div className="journal-div-style">
+        {items.length === 0 ? <p>No posts have been made.</p>: "You have " + items.length + " total posts."}
+        {console.log(items.length)}
+        </div>
       </div>
     );
   }
