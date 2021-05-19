@@ -68,6 +68,21 @@ module.exports = {
     const postCollection = await social();
     const likedPost = await postCollection.updateOne({ _id: parsedId },{ $inc: { likedCounter: 1} });
     if (likedPost === null) throw "There are no posts with the id provided.";
+
+    
+
+    return likedPost;
+  },
+  async updateUnlike(id){
+    if (!id) throw "Error: no ID provided";
+    if (typeof id != "string" || id == "")
+      throw "Error: ID must be a string and must not be empty";
+    if (!id || !ObjectId.isValid(id))
+      throw "Error: must provide a valid ID to search for";
+    let parsedId = ObjectId(id);
+    const postCollection = await social();
+    const likedPost = await postCollection.updateOne({ _id: parsedId },{ $inc: { likedCounter: -1} });
+    if (likedPost === null) throw "There are no posts with the id provided.";
     return likedPost;
   },
   async remove(id) {

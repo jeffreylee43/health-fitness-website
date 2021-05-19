@@ -45,6 +45,18 @@ const Home = () => {
   let items = null;
   let loop = [0, 1, 2];
   const level = Math.floor(Math.random() * 3);
+  const level2 = Math.floor(Math.random() * 6);
+
+  const list_quotes = ["“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney",
+                        "“The secret of getting ahead is getting started.” – Mark Twain",
+                        "“The best time to plant a tree was 20 years ago. The second best time is now.” – Chinese Proverb",
+                        "“Only the paranoid survive.” – Andy Grove",
+                        "“It’s hard to beat a person who never gives up.” – Babe Ruth",
+                        "“Do one thing every day that scares you.”― Eleanor Roosevelt",
+                        "“You can either experience the pain of discipline or the pain of regret. The choice is yours.”  – Unknown",
+                        "“Your passion is waiting for your courage to catch up.” – Isabelle Lafleche",
+                        "“Impossible is just an opinion.” – Paulo Coelho"
+                      ]
 
   const styles = style();
   const [userInfo, setUserInfo] = useState({});
@@ -143,6 +155,8 @@ const Home = () => {
             {items}
           </Grid>
         </div>
+
+        <h2 className="homeQuote">{list_quotes[level2]}</h2>
       </div>
     );
   }
