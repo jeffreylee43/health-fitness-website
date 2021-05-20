@@ -77,6 +77,7 @@ router.delete("/:id", async (req, res) => {
     return;
   }
   try {
+    await users.removeAllInstances(req.params.id);
     await social.remove(req.params.id);
     res.sendStatus(200);
   } catch (e) {
