@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { doCreateUserWithEmailAndPassword } from '../firebase/FirebaseFunctions';
 import { AuthContext } from '../firebase/Auth';
 import axios from 'axios';
+const gm = require('gm')
 
 function SignUp() {
     const {currentUser} = useContext(AuthContext);
@@ -14,6 +15,11 @@ function SignUp() {
             setPwMatch('Passwords do not match');
             return false;
         }
+
+        gm(profilepic).resize(100, 100).write('./src/img/portait.jpg', (err) => {
+            if (err) console.log(err)
+        })
+
         try {
             await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
             await axios.post('/users', {
@@ -24,7 +30,7 @@ function SignUp() {
                 gender: gender.value,
                 height: height.value,
                 skill: skill.value,
-                profilepic: "NoImage.jpg"
+                profilepic: 'portrait.jpg'
             });
         } catch (error) {
             alert(error);
@@ -96,12 +102,12 @@ function SignUp() {
                     </select>
                 </label>
             </div>
-            {/* <div>
+                <div>
                 <label htmlFor="profilepic">
-                    Upload a profile picture:
-                    <input type="file" name="profilepic" id="profilepic"></input>
+                        Upload a profile picture:
+                    <input type="file" name="profilepic" id="profilepic" accept="image/*"></input>
                 </label>
-            </div> */}
+                </div>
             <button className="btn-style" id="submitButton" name="submitButton" type="submit">
                 Sign Up
             </button>
