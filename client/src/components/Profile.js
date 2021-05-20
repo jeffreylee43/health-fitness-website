@@ -77,8 +77,8 @@ const Home = (props) => {
         </div>
       <div className="profile-div">
             <h2>{userInfo.name}</h2>
+            <img className="proImage" src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt={userInfo.profilepic}></img>
         <ul className="profile-list">
-        <img className="proImage" src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt={userInfo.profilepic}></img>
           <li>
             <span className="desc-style">Email</span>: {userInfo.email}
           </li>
