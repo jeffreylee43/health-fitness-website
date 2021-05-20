@@ -156,7 +156,7 @@ const Home = (props) => {
                 }))
                 }
                 <div className="journal-div-style">
-                    {items.length === 0 ? <p>No posts have been made.</p>: ""}
+                    {items.length === 0 ? <p>Like a post to save it here!</p>: ""}
                 </div>
         </div>
     </div>
