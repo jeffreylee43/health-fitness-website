@@ -137,7 +137,6 @@ function AddNoteModal(props) {
               name="date"
               id="date"
               type="date"
-              placeholder="Enter the date of when you performed this exercise..."
               required
             />
           </div>
@@ -148,7 +147,6 @@ function AddNoteModal(props) {
               className="large-input"
               name="comments"
               id="comments"
-              type="text"
               placeholder="Enter any additional comments..."
               required
             />
@@ -211,7 +209,6 @@ function AddNoteModal(props) {
               name="date"
               id="date"
               type="date"
-              placeholder="Enter the date of when you ate this food..."
               required
             />
           </div>
@@ -222,7 +219,6 @@ function AddNoteModal(props) {
               className="large-input"
               name="comments"
               id="comments"
-              type="text"
               placeholder="Enter any additional comments..."
               required
             />
@@ -260,7 +256,6 @@ function AddNoteModal(props) {
               className="large-input"
               name="comments"
               id="comments"
-              type="text"
               placeholder="Enter the desired comments..."
               required
             />
@@ -298,7 +293,6 @@ function AddNoteModal(props) {
               className="large-input"
               name="post"
               id="post"
-              type="text"
               placeholder="Enter your post here..."
               required
             />
