@@ -99,5 +99,5 @@ module.exports = {
     if (deletionInfo.deletedCount === 0)
       throw `Could not find/delete book with id of ${id}`;
     return `success`;
-  },
+  }
 };

@@ -63,6 +63,22 @@ module.exports = {
         return foundUser;
     },
 
+    async getAllUsers(){
+        const usersCollection = await users();
+        const usersList = await usersCollection.find({}).toArray();
+
+        if(usersList.length === 0) {
+            return [];
+        }
+
+        for(let user of usersList) {
+            const stringId = user._id.toString();
+            user._id = stringId;
+        }
+
+        return usersList;
+    },
+
     async addLikedPost(email, postid){
         if(!email || email === "" || email.trim() === "") throw 'A non-empty email must be provided';
         const user1 = await this.getUserByEmail(email);
@@ -121,6 +137,17 @@ module.exports = {
             outputarr.push(likedpost);
         }
         return outputarr;
-    }
-    
+    },
+    async removeAllInstances(id){
+        const allUsers = await this.getAllUsers();
+        for (let user of allUsers){
+          let arr = user.likedPosts;
+          for (let postid of arr){
+            if (postid == id){
+              const removeid = await this.removeLikedPost(user.email, id);
+            }
+          }
+        }
+        return true;
+      }
 };
