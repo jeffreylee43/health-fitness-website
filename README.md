@@ -1,4 +1,4 @@
-# CS554 Web Programming II Final Project
+# CS554 Web Programming II Final Project - FitU
 
 ## Group Members
 Siddhanth Patel, Jeffrey Lee, Adam Farid, Cheng Cheng
